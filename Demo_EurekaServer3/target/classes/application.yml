@@ -1,0 +1,21 @@
+server:
+  port: 8803
+  
+spring:
+  application:
+    name: eurekaserver3
+# 服务发现组件配置
+eureka:
+  instance:
+    hostname: eureka8803.com # eureka服务端的实例名称，做了域名映射 在本机的C:\Windows\System32\drivers\etc\hosts当中
+  server:
+    enable-self-preservation: false # 测试环境关闭自我保护机制
+    eviction-interval-timer-in-ms: 4000 # 设置清理的间隔时间，而后这个时间使用的是毫秒单位（默认是60秒）
+  client:
+    register-with-eureka: false  # 表示是否将自己注册到Eureka Server，默认为true
+    fetch-registry: false # 表示是否从Eureka Server获取注册信息，默认为true。目前为单点不需要同步其他的Eureka Server节点，故设置为false
+    service-url:
+     #单机 defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+     #配置集群
+     defaultZone:  http://eureka8801.com:8801/eureka/,http://eureka8802.com:8802/eureka/
+    

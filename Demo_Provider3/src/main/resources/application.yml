@@ -1,0 +1,41 @@
+server:
+  port: 8813
+  
+spring:  application:    name: provider
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/springclouddemo3?characterEncoding=utf-8
+    username: root
+    password: 123456
+    dbcp2:      min-idle: 5 # 数据库连接池的最小维持连接数
+      initial-size: 5 # 初始化连接数
+      max-total: 5 # 最大连接数
+      max-wait-millis: 200 # 等待连接获取的最大超时时间
+  jpa:
+    show-sql: true # 显示Sql语句
+    hibernate:
+      ddl-auto: none # 每次启动重新update表
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect # 采用innoDb数据库
+  cloud:
+    service-registry:
+      auto-registration:
+        enabled: true # 不想将服务注册到Eureka Server设置为false
+eureka:
+  client:
+    service-url: 
+      # 设置与Eureka Server交互的地址
+      # 单机
+      defaultZone: http://eureka8801.com:8801/eureka/
+      # 集群
+   #  defaultZone: defaultZone: http://eureka8801.com:8801/eureka/,http://eureka8802.com:8802/eureka/,http://eureka8803.com:8803/eureka/
+  instance:
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port} # 配置Eureka界面Status名称显示
+    prefer-ip-address: true # 访问路径时可以显示IP地址
+
+# 配置Eureka界面点击Status地址后显示信息
+info:
+  app.name: atguigu-yxfSpringCloudDemo
+  creator:
+    name: YXF
+    data: 2019-09-11
+  
