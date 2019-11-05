@@ -79,6 +79,8 @@
 		<module>Demo_Provider2</module>
 		<module>Demo_Provider3</module>
 		<module>Demo_Consumer_Feign</module>
+		<module>Demo_Provider_Hystrix</module>
+		<module>Demo_Dashboard</module>
 	</modules>
 	
 </project>

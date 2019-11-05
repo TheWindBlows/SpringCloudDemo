@@ -44,7 +44,10 @@ public enum HttpCodeEnum {
 	CODE_NULL(505,"验证码不能为空!"),
 
 	/** 网关异常 */
-	GATEWAY_ERROR(504, "网关转发超时!");
+	GATEWAY_ERROR(504, "网关转发超时!"),
+	
+	/** 服务降级已关闭 */
+	HYSTRIX_ERROR(600, "服务已关闭!");
 	
 	private Integer code;
 

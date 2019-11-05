@@ -5,13 +5,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.yxf.demo.service.fallback.DeptClientServerFallback;
+
 /**
  * @Description: Feign调用接口
  * 传递对象参数使用@RequestBody 传递String类型使用@RequestParam("id")
  * @author yuanxiaofei
  * @date 2019年11月4日
  */
-@FeignClient(value = "provider")
+// 用过服务名称进行接口调用，出现异常调用异常处理
+@FeignClient(value = "provider",fallbackFactory = DeptClientServerFallback.class)
 public interface DeptClientServer {
 	
 	/**

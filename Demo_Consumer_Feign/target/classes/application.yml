@@ -34,4 +34,8 @@ eureka:
    #   defaultZone: http://eureka8801.com:8801/eureka/,http://eureka8802.com:8802/eureka/,http://eureka8803.com:8803/eureka/
   instance:
     instance-id: ${spring.cloud.client.ipAddress}:${server.port} #将自己的IP注册到Eureka Server上
+    
+feign:
+  hystrix:
+    enabled: true
   
