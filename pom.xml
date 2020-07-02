@@ -12,7 +12,7 @@
 		<spring-cloud.version>Edgware.SR4</spring-cloud.version>
 		<stringutil.version>3.0</stringutil.version>
 		<druid.version>1.1.10</druid.version>
-		<mysql.connector.version>5.1.24</mysql.connector.version>
+		<mysql.connector.version>8.0.16</mysql.connector.version>
 		<swagger.version>2.5.0</swagger.version>
 		<swagger.ui.version>2.5.0</swagger.ui.version>
 	</properties>
